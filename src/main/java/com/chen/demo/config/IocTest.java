@@ -4,6 +4,8 @@ package com.chen.demo.config;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import com.chen.demo.pojo.User;
+
 
 public class IocTest {
 	public static void main(String[] args) {

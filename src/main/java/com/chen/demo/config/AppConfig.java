@@ -3,9 +3,13 @@ package com.chen.demo.config;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
+import com.chen.demo.pojo.User;
+
 
 @Configuration
-@ComponentScan
+//@ComponentScan(basePackageClasses = {User.class})
+//@ComponentScan("com.chen.demo.*")
+@ComponentScan("com.chen.demo.pojo")
 public class AppConfig {
 
 	/*
