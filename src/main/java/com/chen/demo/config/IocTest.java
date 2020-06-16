@@ -10,6 +10,7 @@ import com.chen.demo.pojo.User;
 public class IocTest {
 	public static void main(String[] args) {
 
+		@SuppressWarnings("resource")
 		ApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
 		User user = ctx.getBean(User.class);
 		
