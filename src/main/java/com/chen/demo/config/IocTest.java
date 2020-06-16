@@ -14,6 +14,7 @@ public class IocTest {
 		ApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
 		User user = ctx.getBean(User.class);
 		
+		
 		System.out.println(user.getId());
 		System.out.println(user.getNote());
 

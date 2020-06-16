@@ -1,11 +1,14 @@
 package com.chen.demo.pojo;
 
+import java.io.Serializable;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component("user")
-public class User {
+public class User implements Serializable{
 
+	private static final long serialVersionUID = 2468276040472238111L;
 	@Value("1")
 	private Long id;
 	@Value("user_name_1")
