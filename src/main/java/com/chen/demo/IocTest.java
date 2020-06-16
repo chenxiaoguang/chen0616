@@ -1,9 +1,10 @@
-package com.chen.demo.config;
+package com.chen.demo;
 
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import com.chen.demo.config.AppConfig;
 import com.chen.demo.pojo.User;
 
 
