@@ -1,6 +1,12 @@
 package com.chen.demo;
 
 
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import javax.sql.DataSource;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -18,7 +24,17 @@ public class IocTest {
 		
 		System.out.println(user.getId());
 		System.out.println(user.getNote());
-
+		
+		DataSource ds = ctx.getBean(DataSource.class);
+		
+		try {
+			Connection conn = ds.getConnection();
+			conn.close();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+				
 	}
 
 }
