@@ -3,40 +3,29 @@ package com.chen.demo.pojo;
 import java.io.Serializable;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.chen.demo.pojo.definition.Animal;
 import com.chen.demo.pojo.definition.Persion;
 
-
 @Component
-public class BussinessPersion implements Persion, Serializable {
+public class Worker implements Persion, Serializable {
 
-	private static final long serialVersionUID = 42981893816715783L;
+	private static final long serialVersionUID = 8624834756433879990L;
 	
 	@Autowired
-	@Qualifier("dog")
 	private Animal animal;
+	
 	
 	@Override
 	public void service() {
-		this.animal.use();
+		animal.use();
+
 	}
 
 	@Override
 	public void setAnimal(Animal animal) {
 		this.animal = animal;
 	}
-	
-	
-	/*
-	 * @Autowired private Animal dog;
-	 * 
-	 * 
-	 * @Override public void service() { this.dog.use(); }
-	 * 
-	 * @Override public void setAnimal(Animal animal) { this.dog = animal; }
-	 */
 
 }

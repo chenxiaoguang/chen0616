@@ -9,34 +9,30 @@ import org.springframework.stereotype.Component;
 import com.chen.demo.pojo.definition.Animal;
 import com.chen.demo.pojo.definition.Persion;
 
-
 @Component
-public class BussinessPersion implements Persion, Serializable {
+public class Famer implements Persion, Serializable {
 
-	private static final long serialVersionUID = 42981893816715783L;
 	
-	@Autowired
-	@Qualifier("dog")
+	private static final long serialVersionUID = 4886633673496142056L;
+	
 	private Animal animal;
 	
+	
+	public Famer(@Autowired @Qualifier("dog") Animal animal)
+	{
+		this.animal = animal;
+	}
+	
+
 	@Override
 	public void service() {
-		this.animal.use();
+		animal.use();
+
 	}
 
 	@Override
 	public void setAnimal(Animal animal) {
 		this.animal = animal;
 	}
-	
-	
-	/*
-	 * @Autowired private Animal dog;
-	 * 
-	 * 
-	 * @Override public void service() { this.dog.use(); }
-	 * 
-	 * @Override public void setAnimal(Animal animal) { this.dog = animal; }
-	 */
 
 }
