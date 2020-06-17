@@ -3,7 +3,9 @@ package com.chen.demo;
 
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import javax.sql.DataSource;
 
@@ -21,20 +23,50 @@ public class IocTest {
 		ApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
 		User user = ctx.getBean(User.class);
 		
-		
 		System.out.println(user.getId());
 		System.out.println(user.getNote());
 		
-		DataSource ds = ctx.getBean(DataSource.class);
 		
+//		CREATE TABLE `user` (
+//		  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+//		  `name` varchar(20) DEFAULT NULL,
+//		  `note` varchar(100) DEFAULT NULL,
+//		  PRIMARY KEY (`id`)
+//		) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8
+		
+		
+		DataSource ds = ctx.getBean(DataSource.class);
+		Connection conn = null;
 		try {
-			Connection conn = ds.getConnection();
-			conn.close();
+			conn = ds.getConnection();
+			
+			Statement st = conn.createStatement();
+			
+			String sql = "select * from user";
+			
+			ResultSet rs = st.executeQuery(sql);
+			
+			while(rs.next())
+			{
+				Long id = rs.getLong(1);
+				String name = rs.getString(2);
+				String note = rs.getString(3);
+				
+				System.out.println(id+name+note);
+			}
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-				
+		} finally {
+			try {
+				if(conn!=null)
+				{
+					conn.close();
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}		
 	}
 
 }
