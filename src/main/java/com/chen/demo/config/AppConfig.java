@@ -27,19 +27,14 @@ public class AppConfig {
 	 * user.setId(1L); user.setName("chen"); user.setNote("note"); return user; }
 	 */
 	
-	
-	
 	@Bean(name="dataSource")
 	public DataSource getDataSource()
 	{
-		
 		Properties props = new Properties();
 		props.setProperty("driver", "com.mysql.jdbc.Driver");
-		
 		props.setProperty("url", "jdbc:mysql://localhost:3306/chen");
 		props.setProperty("username", "chen");
 		props.setProperty("password", "chen");
-		
 		
 		DataSource dataSource = null;
 		
@@ -49,9 +44,6 @@ public class AppConfig {
 			e.printStackTrace();
 		}
 		
-		
-		
 		return dataSource;
-		
 	}
 }
