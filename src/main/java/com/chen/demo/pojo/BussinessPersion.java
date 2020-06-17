@@ -14,7 +14,6 @@ public class BussinessPersion implements Persion, Serializable {
 
 	private static final long serialVersionUID = 42981893816715783L;
 	
-	
 	@Autowired
 	private Animal animal;
 	
@@ -27,5 +26,15 @@ public class BussinessPersion implements Persion, Serializable {
 	public void setAnimal(Animal animal) {
 		this.animal = animal;
 	}
+	
+	
+	/*
+	 * @Autowired private Animal dog;
+	 * 
+	 * 
+	 * @Override public void service() { this.dog.use(); }
+	 * 
+	 * @Override public void setAnimal(Animal animal) { this.dog = animal; }
+	 */
 
 }
