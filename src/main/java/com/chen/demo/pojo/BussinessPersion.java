@@ -27,6 +27,7 @@ public class BussinessPersion implements Persion, Serializable {
 	@Autowired
 	@Qualifier("dog")
 	public void setAnimal(Animal animal) {
+		System.out.println("延迟依赖注入");
 		this.animal = animal;
 	}
 	
