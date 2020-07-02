@@ -27,9 +27,8 @@ public class IocTest {
 		ApplicationContext ctx = new AnnotationConfigApplicationContext(AppConfig.class);
 		
 		
-		Persion persion = ctx.getBean(BussinessPersion.class);
-		persion.service();
-		
+		Persion bussinessPersion = ctx.getBean(BussinessPersion.class);
+		bussinessPersion.service();
 		
 		Persion farmer = ctx.getBean(Famer.class);
 		farmer.service();
